@@ -9,7 +9,18 @@ const grid = document.querySelectorAll(".grid");
 
 for (i = 0; i < grid.length; i++) {
     grid[i].style.border = "solid black";
+    colorChange(i);
 }
+
+function colorChange(index) {
+    grid[index].addEventListener("mouseover", () => {
+        grid[index].style.background = "black"
+    }); 
+}
+
+
+
+
 
 
 
