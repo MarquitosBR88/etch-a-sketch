@@ -37,8 +37,18 @@ function gridCreator(value) {
             const childDivs = document.createElement("div");
             childDivs.classList.add("children", "grid");
             rows.appendChild(childDivs);
-            x++
+            x++           
+        }       
+        
+    }
+
+    //Delete the first grid instead of appending the new to it
+    const verify = document.querySelectorAll(".grid");
+    if (verify.length > (value * value) + value) {
+        while (container.firstChild) {
+            container.firstChild.remove();
         }
+        gridCreator(value)
     }
 }
 
