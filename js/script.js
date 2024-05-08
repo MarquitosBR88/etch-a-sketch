@@ -11,7 +11,7 @@ function newGrid(value) {
     const grid = document.querySelectorAll(".children");
     function colorChange(index) {
         grid[index].addEventListener("mouseover", () => {
-            grid[index].style.background = "black"
+            grid[index].style.background = getRandomColor();
         }); 
     }
     //For each div iteration, add border and the colorChange function when hover 
@@ -23,7 +23,11 @@ function newGrid(value) {
 
 customGrid.addEventListener("click", () => {
     let value = parseInt(prompt("How many rows?"));
-    newGrid(value);
+    if (value <= 100) {
+        newGrid(value);
+    } else {
+        alert("This value is higher than 100, please try again.");
+    }
 });
 
 //Create the divs blocks of the grid
@@ -51,6 +55,15 @@ function gridCreator(value) {
         gridCreator(value)
     }
 }
+
+function getRandomColor() {
+    var letters = '0123456789ABCDEF';
+    var color = '#';
+    for (var i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  }
 
 
 
